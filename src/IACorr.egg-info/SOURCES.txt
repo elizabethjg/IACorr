@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/IACorr/__init__.py
+src/IACorr/compute_IA_corr_from_data.py
+src/IACorr.egg-info/PKG-INFO
+src/IACorr.egg-info/SOURCES.txt
+src/IACorr.egg-info/dependency_links.txt
+src/IACorr.egg-info/requires.txt
+src/IACorr.egg-info/top_level.txt
+tests/test_import.py
