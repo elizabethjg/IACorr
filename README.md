@@ -81,7 +81,7 @@ pip install -e .
 
 ## Prerequisites
 - `python`
-- `nupy`
+- `numpy`
 - `treecorr`
 - `astropy`
 - `pandas`
