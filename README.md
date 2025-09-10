@@ -85,6 +85,7 @@ pip install -e .
 - `treecorr`
 - `astropy`
 - `pandas`
+  
 These will be automatically installed by `pip`
 
 ## License
