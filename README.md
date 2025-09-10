@@ -6,14 +6,14 @@ This repository provides a **TreeCorr-based wrapper** for computing _Intrinsic A
 
 The code takes as input two galaxy catalogues:
 
--   **position sample:** traces the galaxy density field , $D$
+-   **positions:** traces the galaxy density field , $D$
     
--   **shape sample:** traces the intrinsic shear field, $S$
+-   **shapes:** traces the intrinsic shear field, $S$
     
 
 and the random catalogues (**random_positions**, **random_shapes**) related with each sample. The code is mainly devoted to compute the estimators for light-cone catalogues, but was also adapted to be used for a box in a snapshot. The following IA estimators are currently implemented:
 
-- 3D Auto correlation $D$ galaxy sample positions:
+- 3D Auto correlation $D$ galaxy sample:
 
 $$    \xi_{dd}(r_p,\Pi) = \frac{DD -2DR_D + R_DR_D}{R_DR_D},$$
 
@@ -49,15 +49,11 @@ $$    \xi_{d+,\times}(r_p,\Pi) = \frac{S_{+,\times}D}{R_SR_D}$$
 
 $$    \xi_{+,\times}(r_p,\Pi) = \frac{S_{+,\times}S_{+,\times}}{R_SR_S}$$
 
-
-- The projected correlations are defined as:
+- The projected correlations defined as:
 
 $$    w_{\text{xx}}(r_p) = \int^{\Pi_\text{max}}_{-\Pi_\text{max}} \xi_\text{xx}(r_p,\Pi) d\Pi \sim \sum^{\Pi_\text{max}}_{-\Pi_\text{max}} \Delta \Pi \xi_\text{xx}(r_p,\Pi)$$
 
-
-
 $$    w_{g+,2}(r) = \frac{5}{2} \frac{1}{4!} \int d\mu_r L^{2,2}(\mu_r) \xi(r,\mu_r) \sim \frac{5}{2} \frac{1}{4!} \sum^{1}_{-1} \Delta \mu \xi_\text{xx}(r,\mu_r)$$
-
 
 - Errors and covariance matrix are computed considering $N_\text{jk}$ regions:
 
