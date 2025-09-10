@@ -62,7 +62,8 @@ $$C^\text{jk}_{ij} = \frac{N_\text{jk} - 1}{N_\text{jk}}
 \sum^{N_\text{jk}}_{m=1} (\xi^m_i - \bar{\xi}_i) (\xi^m_j - \bar{\xi}_j)$$
 
 where:
- $$ \bar{\xi}_i \frac{1}{N_\text{jk}} \sum^{N_\text{jk}}_{m=1} \xi^m_i$$
+
+ $$ \bar{\xi}_i \frac{1}{N_\text{jk}} \sum^{N_\text{jk}}_{m=1} \xi^m_i $$
 
 
 ## Installation
