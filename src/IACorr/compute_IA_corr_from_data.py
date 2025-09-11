@@ -573,9 +573,11 @@ class compute_wpp(project_corr):
         mean_rp (ndarray): Mean projected radial separation bins.
         Pi (ndarray): Array of l.o.s. of the mean value pi separation bins.
         Pi_bins (ndarray): Array of l.o.s. of the upper and lower limits of the separation bins.
-        xi (ndarray): 2-D Correlation function in bins of projected and l.o.s distance.
-        xi_jk (ndarray): 2-D Correlation function for each Jackknife resampling.
-        xip (ndarray): Projected correlation function across the l.o.s.
+        xi (ndarray): shape-shape(++) 2-D Correlation function in bins of projected and l.o.s distance.
+        xi_x (ndarray): shape-shape(--) 2-D Correlation function in bins of projected and l.o.s distance.
+        xi_jk (ndarray): shape-shape(++) 2-D Correlation function for each Jackknife resampling.
+        xi_x_jk (ndarray): shape-shape(--) 2-D Correlation function for each Jackknife resampling.
+        xip (ndarray): Projected shape-shape(++) correlation function across the l.o.s.
         xip_jk (ndarray): Projected correlation function across the l.o.s for each Jackknife resampling.
         cov_jk (ndarray): Covariance matrix estimated using Jackknife resampling.
         cov_jk_norm (ndarray): Normalised covariance matrix estimated using Jackknife resampling.      
@@ -633,8 +635,8 @@ class compute_wpp(project_corr):
             mean_r[:] = np.copy(rr.meanr)
             mean_logr[:] = np.copy(rr.meanlogr)
             
-            xi[p, :] = (f0 * (ss.xip * ss.weight)) / (rr.weight * factor)
-            xi_x[p, :] = (f0 * (ss.xim_im * ss.weight)) / (rr.weight * factor)
+            xi[p, :] = (f0 * (ss.xip * ss.weight)) / (rr.weight)
+            xi_x[p, :] = (f0 * (ss.xim * ss.weight)) / (rr.weight)
         
             #Here I compute the variance
             func_ss = lambda corrs: corrs[0].xip * corrs[0].weight
@@ -1690,7 +1692,8 @@ class compute_2p_corr():
 
     def compute_wpp(self):       
         self.wpp = compute_wpp(self.scat,self.rscat,self.config)
-        self.wxx = get_wgx(self.wpp._xi_x,self.wpp._xi_x_jk,self.wpp.rp,self.wpp.Pi_bins)
+        self.wxx = get_wgx(self.wpp._xi_x,self.wpp._xi_x_jk,
+                           self.wpp.rp,self.wpp.Pi_bins)
 
 def make_randoms_lightcone(ra, dec, z, size_random, col_names=['ra','dec','z']):
 
