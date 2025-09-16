@@ -38,8 +38,9 @@ $$    \xi_{d+,\times}(r_p,\Pi) = \frac{S_{+,\times}D - S_{+,\times}R_D}{R_SR_D}$
 
 where:
 
-$$    S_+D(r_p,\Pi) = \frac{\sum e_{+,\times}}{n_sn_d - S\cap D}$$
+$$    S_{+,\times}D(r_p,\Pi) = \frac{\sum e_{+,\times}}{n_sn_d - S\cap D}$$
 
+and $e_{+,\times}$ is the $+,\times$ component of the galaxy ellipticity in sample $S$. 
 - The shape-position correlation in the $(r,\mu_r)$ space, $\xi_{d+}(r,\mu_r)$, where $r$ is the 3D distance and $\mu_r=\Pi/r$
 - An alternative faster shape-position correlation, that assumes that the correlation between the shear field and the density field traced by a random position distribution in negligible, $S_{+,\times}R_D = 0$. Therefore:
 
