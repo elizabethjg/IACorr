@@ -629,7 +629,7 @@ class compute_wpp(project_corr):
             
            
             ss.process(scat,scat, metric='Rperp', num_threads = config['ncores'])
-            rr.process(rcat,rcat, metric='Rperp', num_threads = config['ncores'])
+            rr.process(rscat,rscat, metric='Rperp', num_threads = config['ncores'])
 
             r[:] = np.copy(rr.rnom)
             mean_r[:] = np.copy(rr.meanr)
