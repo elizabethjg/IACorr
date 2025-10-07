@@ -156,7 +156,9 @@ class compute_wgg(project_corr):
         mean_r     = np.zeros(config['nbins'])
         mean_logr     = np.zeros(config['nbins'])
         xi = np.zeros((config['npi'], config['nbins']))
-        NN = np.zeros((config['npi'], config['nbins']))
+        DD = np.zeros((config['npi'], config['nbins']))
+        RR = np.zeros((config['npi'], config['nbins']))
+        DR = np.zeros((config['npi'], config['nbins']))
 
         xi_jk = np.zeros((config['NPatches'], config['npi'], config['nbins']))
         
@@ -218,7 +220,10 @@ class compute_wgg(project_corr):
             mean_logr[:] = np.copy(dd.meanlogr)
 
             xi[p, :] = (dd.weight*factor*f0 - (2.*dr.weight)*f1 + rr.weight*factor) / (rr.weight*factor)
-            NN[p, :] = dd.weight
+            DD[p, :] = dd.weight
+            RR[p, :] = rr.weight
+            DR[p, :] = dr.weight
+            
             #Here I compute the variance
             func = lambda corrs: corrs[0].weight
             dd_jk[:, p, :], weight = treecorr.build_multi_cov_design_matrix([dd], 'jackknife', func = func)
@@ -258,7 +263,9 @@ class compute_wgg(project_corr):
         self.Pi = xPi
         self.xi = xi
         self.xi_jk = xi_jk
-        self.NN = NN
+        self.DD = DD
+        self.DR = DR
+        self.RR = RR
         self.Pi_bins = Pi
         
         project_corr.__init__(self,self.xi,self.xi_jk,self.rp,Pi)
