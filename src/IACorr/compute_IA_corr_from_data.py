@@ -397,9 +397,10 @@ class compute_wgg_cross(project_corr):
 
             Nd1d2_JK = swd1*swd2 - dup.Nrep(dcat1.patch != i,dcat2.patch != i)
             Nr1r2_JK = swr1*swr2 - dup_random.Nrep(rcat1.patch != i,rcat2.patch != i)
-
+            N1R2_JK = (swd1*swr2)
+            N2R1_JK = (swd2*swr1)
             
-            xi_jk[i, :, :] = (d1d2_jk[i, :, :]/Nd1d2_JK - d1r2_jk[i, :, :]/(swd2*swr1) - d1r2_jk[i, :, :]/(swd2*swr1) + r1r2_jk[i, :, :]/(swr1*swr2)) / (r1r2_jk[i, :, :]/Nr1r2_JK)
+            xi_jk[i, :, :] = (d1d2_jk[i, :, :]/Nd1d2_JK - d1r2_jk[i, :, :]/(swd1*swr2) - d2r1_jk[i, :, :]/(swd2*swr1) + r1r2_jk[i, :, :]/(swr1*swr2)) / (r1r2_jk[i, :, :]/Nr1r2_JK)
     
         xi[np.isinf(xi)] = 0. #It sets to 0 the values of xi_gp that are infinite
         xi[np.isnan(xi)] = 0. #It sets to 0 the values of xi_gp that are null
