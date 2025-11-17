@@ -1194,7 +1194,11 @@ class compute_wgp2(project_corr):
         sxr_jk = mean_gamma_x_sr_jk.statistic*sum_pairs_sr_jk.statistic
         
         rr_jk = sum_pairs_rr_jk.statistic
-    
+
+        self.sd = sd
+        self.sr = sr
+        self.rr = rr
+        
         self.xi = (f0 * sd - f1 * sr)/ rr
         self.xi_jk = (f0_jk * sd_jk - f1_jk * sr_jk)/ rr_jk
         self._xi_x = (f0 * sxd - f1 * sxr)/ rr
