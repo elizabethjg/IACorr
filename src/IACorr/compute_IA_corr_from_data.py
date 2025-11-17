@@ -1113,8 +1113,14 @@ class compute_wgp2(project_corr):
 
         # Now bin over r and mu
         m = np.abs(pi/r) < 1.
+        
         self._pi = pi
         self._r  = r
+        self._gamma_sd  = gamma_sd
+        self._gamma_sr  = gamma_sr
+        self._npairs_sd  = npairs_sd
+        self._npairs_sr  = npairs_sr
+        self._npairs_rr  = npairs_rr
         
         mean_gamma = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
                                                [gamma_sd[m],
