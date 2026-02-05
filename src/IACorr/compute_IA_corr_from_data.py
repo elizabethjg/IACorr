@@ -994,7 +994,7 @@ class compute_wgp2(project_corr):
 
     
     def __init__(self,pcat, scat, rpcat, rscat,config):
-        
+
         # to finde duplicates
         dup = duplicate(pcat,scat,config['exact_position'],config['sky_threshold'])
         dup_random = duplicate(rpcat,rscat,config['exact_position'],config['sky_threshold'])
@@ -1122,61 +1122,37 @@ class compute_wgp2(project_corr):
         self._npairs_sr  = npairs_sr
         self._npairs_rr  = npairs_rr
         
-        mean_gamma = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                               [gamma_sd[m],
-                                                gamma_sr[m]], 
-                                                bins=[config['mubins'],config['nbins']], 
-                                                statistic = 'mean'
-                                               )
-    
-        mean_gamma_x = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                               [gamma_x_sd[m],
-                                                gamma_x_sr[m]], 
-                                                bins=[config['mubins'],config['nbins']], 
-                                                statistic = 'mean'
-                                               )
-        
-        sum_pairs = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                               [npairs_sd[m],
-                                                npairs_sr[m], 
-                                                npairs_rr[m]], 
+        all_sums = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
+                                               [gamma_sd[m]*npairs_sd[m],
+                                                gamma_sr[m]*npairs_sr[m],
+                                                gamma_x_sd[m]*npairs_sd[m],
+                                                gamma_x_sr[m]*npairs_sr[m],
+                                                npairs_rr[m]
+                                               ], 
                                                 bins=[config['mubins'],config['nbins']], 
                                                 statistic = 'sum'
                                                )
         
-        mean_gamma_sd_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                                gamma_sd_jk[:,m],
+        sum_gamma_sd_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
+                                                (gamma_sd_jk*npairs_sd_jk)[:,m],
                                                 bins=[config['mubins'],config['nbins']], 
-                                                statistic = 'mean'
+                                                statistic = 'sum'
                                                )
-        
-        mean_gamma_sr_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                                gamma_sr_jk[:,m],
-                                                bins=[config['mubins'],config['nbins']], 
-                                                statistic = 'mean'
-                                               )
-    
-        mean_gamma_x_sd_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]),  
-                                                gamma_x_sd_jk[:,m],
-                                                bins=[config['mubins'],config['nbins']], 
-                                                statistic = 'mean'
-                                               )
-        
-        mean_gamma_x_sr_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                                gamma_x_sr_jk[:,m],
-                                                bins=[config['mubins'],config['nbins']], 
-                                                statistic = 'mean'
-                                               )
-    
-        
-        sum_pairs_sd_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                                npairs_sd_jk[:,m],
+
+        sum_gamma_sr_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
+                                                (gamma_sr_jk*npairs_sr_jk)[:,m],
                                                 bins=[config['mubins'],config['nbins']], 
                                                 statistic = 'sum'
                                                )
         
-        sum_pairs_sr_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                                npairs_sr_jk[:,m],
+        sum_gamma_x_sd_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
+                                                (gamma_x_sd_jk*npairs_sd_jk)[:,m],
+                                                bins=[config['mubins'],config['nbins']], 
+                                                statistic = 'sum'
+                                               )
+
+        sum_gamma_x_sr_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
+                                                (gamma_x_sr_jk*npairs_sr_jk)[:,m],
                                                 bins=[config['mubins'],config['nbins']], 
                                                 statistic = 'sum'
                                                )
@@ -1188,17 +1164,14 @@ class compute_wgp2(project_corr):
                                                )
 
         # Compute the xi and JK
-        mu = mean_gamma.x_edge[:-1] + 0.5*np.diff(mean_gamma.x_edge)
-        R = 10**(mean_gamma.y_edge[:-1] + 0.5*np.diff(mean_gamma.y_edge))
-        sd, sr = mean_gamma.statistic*sum_pairs.statistic[:-1]
-        sxd, sxr = mean_gamma_x.statistic*sum_pairs.statistic[:-1]
-        rr = sum_pairs.statistic[-1]
+        mu = all_sums.x_edge[:-1] + 0.5*np.diff(all_sums.x_edge)
+        R = 10**(all_sums.y_edge[:-1] + 0.5*np.diff(all_sums.y_edge))
+        sd, sr, sxd, sxr, rr = all_sums.statistic
         
-        sd_jk = mean_gamma_sd_jk.statistic*sum_pairs_sd_jk.statistic
-        sr_jk = mean_gamma_sr_jk.statistic*sum_pairs_sr_jk.statistic
-        sxd_jk = mean_gamma_x_sd_jk.statistic*sum_pairs_sd_jk.statistic
-        sxr_jk = mean_gamma_x_sr_jk.statistic*sum_pairs_sr_jk.statistic
-        
+        sd_jk = sum_gamma_sd_jk.statistic
+        sr_jk = sum_gamma_sr_jk.statistic
+        sxd_jk = sum_gamma_x_sd_jk.statistic
+        sxr_jk = sum_gamma_x_sr_jk.statistic
         rr_jk = sum_pairs_rr_jk.statistic
 
         self.sd = sd
@@ -1442,40 +1415,26 @@ class compute_fast_wgp2(project_corr):
         self._pi = pi
         self._r  = r
         
-        mean_gamma = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                               gamma_sd[m], 
-                                                bins=[config['mubins'],config['nbins']], 
-                                                statistic = 'mean'
-                                               )
-    
-        
-        sum_pairs = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                               [npairs_sd[m],
-                                                self.npairs_rr[m]], 
+        all_sums = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
+                                               [gamma_sd[m]*npairs_sd[m],
+                                                self.npairs_rr[m]
+                                               ], 
                                                 bins=[config['mubins'],config['nbins']], 
                                                 statistic = 'sum'
                                                )
         
-        mean_gamma_sd_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                                gamma_sd_jk[:,m],
-                                                bins=[config['mubins'],config['nbins']], 
-                                                statistic = 'mean'
-                                               )
-        
-        sum_pairs_sd_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
-                                                npairs_sd_jk[:,m],
+        sum_gamma_sd_jk = stats.binned_statistic_2d((pi/r)[m],np.log10(r[m]), 
+                                                (gamma_sd_jk*npairs_sd_jk)[:,m],
                                                 bins=[config['mubins'],config['nbins']], 
                                                 statistic = 'sum'
                                                )
                 
 
         # Compute the xi and JK
-        mu = mean_gamma.x_edge[:-1] + 0.5*np.diff(mean_gamma.x_edge)
-        R = 10**(mean_gamma.y_edge[:-1] + 0.5*np.diff(mean_gamma.y_edge))
-        sd = mean_gamma.statistic*sum_pairs.statistic[0]
-        rr = sum_pairs.statistic[-1]
-        
-        sd_jk = mean_gamma_sd_jk.statistic*sum_pairs_sd_jk.statistic        
+        mu = all_sums.x_edge[:-1] + 0.5*np.diff(all_sums.x_edge)
+        R = 10**(all_sums.y_edge[:-1] + 0.5*np.diff(all_sums.y_edge))
+        sd, rr = all_sums.statistic        
+        sd_jk = sum_gamma_sd_jk.statistic
         
         self.xi = (self.f0 * sd)/ rr
         self.xi_jk = (self.f0_JK * sd_jk)/ self.rr_jk
