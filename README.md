@@ -92,3 +92,32 @@ These will be automatically installed by `pip`
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details
+
+## Contributors
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
+
+<!-- ALL-CONTRIBUTORS-LIST:START -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/elizabethjg"><img src="https://avatars.githubusercontent.com/u/26146908?v=4&size=100" width="100px" height="100px" alt="elizabethjg"/><br /><sub><b>elizabethjg</b></sub></a><br /><a href="https://github.com/elizabethjg/IACorr/commits?author=elizabethjg" title="Code">💻</a> <a href="https://github.com/elizabethjg/IACorr/commits?author=elizabethjg" title="Documentation">📖</a> <a href="#ideas-elizabethjg" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-elizabethjg" title="Design">🎨</a> <a href="#maintenance-elizabethjg" title="Maintenance">🚧</a> <a href="#tutorial-elizabethjg" title="Tutorials">✅</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://davidnavarrog.github.io/dnavarrogirones/"><img src="https://avatars.githubusercontent.com/u/29857945?v=4&size=100" width="100px" height="100px" alt="David Navarro Gironés"/><br /><sub><b>David Navarro Gironés</b></sub></a><br /><a href="https://github.com/elizabethjg/IACorr/commits?author=DavidNavarroG" title="Code">💻</a> <a href="#ideas-DavidNavarroG" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-DavidNavarroG" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/aniruddh-herle/"><img src="https://avatars.githubusercontent.com/u/79468499?v=4&size=100" width="100px" height="100px" alt="Aniruddh Herle"/><br /><sub><b>Aniruddh Herle</b></sub></a><br /><a href="https://github.com/elizabethjg/IACorr/commits?author=aniruddh-herle" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.uu.nl/staff/NEChisari"><img src="https://avatars.githubusercontent.com/u/9137015?v=4&size=100" width="100px" height="100px" alt="Elisa Chisari"/><br /><sub><b>Elisa Chisari</b></sub></a><br /><a href="#ideas-elisachisari" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-elisachisari" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/MarloesvL"><img src="https://avatars.githubusercontent.com/u/90691124?v=4&size=100" width="100px" height="100px" alt="Marloes van Heukelum"/><br /><sub><b>Marloes van Heukelum</b></sub></a><br /><a href="#ideas-MarloesvL" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-MarloesvL" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/caspervedder"><img src="https://avatars.githubusercontent.com/u/187176614?v=4&size=100" width="100px" height="100px" alt="Casper Vedder"/><br /><sub><b>Casper Vedder</b></sub></a><br /><a href="#userTesting-caspervedder" title="User Testing">📓</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/rpaviot"><img src="https://avatars.githubusercontent.com/u/95865079?v=4&size=100" width="100px" height="100px" alt="rpaviot"/><br /><sub><b>rpaviot</b></sub></a><br /><a href="#userTesting-rpaviot" title="User Testing">📓</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://leonorlisboa.github.io/"><img src="https://avatars.githubusercontent.com/u/173699770?v=4&size=100" width="100px" height="100px" alt="Leonor N. L. Simões"/><br /><sub><b>Leonor N. L. Simões</b></sub></a><br /><a href="#userTesting-LeonorLisboa" title="User Testing">📓</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->

@@ -1,0 +1,96 @@
+{
+  "projectName": "IACorr",
+  "projectOwner": "elizabethjg",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "none",
+  "contributorsPerLine": 7,
+  "contributors": [
+    {
+      "login": "elizabethjg",
+      "name": "elizabethjg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26146908?v=4",
+      "profile": "https://github.com/elizabethjg",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas",
+        "design",
+        "maintenance",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "DavidNavarroG",
+      "name": "David Navarro Gironés",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29857945?v=4",
+      "profile": "https://davidnavarrog.github.io/dnavarrogirones/",
+      "contributions": [
+        "code",
+        "ideas",
+        "design"
+      ]
+    },
+    {
+      "login": "aniruddh-herle",
+      "name": "Aniruddh Herle",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79468499?v=4",
+      "profile": "https://www.linkedin.com/in/aniruddh-herle/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "elisachisari",
+      "name": "Elisa Chisari",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9137015?v=4",
+      "profile": "https://www.uu.nl/staff/NEChisari",
+      "contributions": [
+        "ideas",
+        "design"
+      ]
+    },
+    {
+      "login": "MarloesvL",
+      "name": "Marloes van Heukelum",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90691124?v=4",
+      "profile": "https://github.com/MarloesvL",
+      "contributions": [
+        "ideas",
+        "design"
+      ]
+    },
+    {
+      "login": "caspervedder",
+      "name": "Casper Vedder",
+      "avatar_url": "https://avatars.githubusercontent.com/u/187176614?v=4",
+      "profile": "https://github.com/caspervedder",
+      "contributions": [
+        "userTesting"
+      ]
+    },
+    {
+      "login": "rpaviot",
+      "name": "rpaviot",
+      "avatar_url": "https://avatars.githubusercontent.com/u/95865079?v=4",
+      "profile": "https://github.com/rpaviot",
+      "contributions": [
+        "userTesting"
+      ]
+    },
+    {
+      "login": "LeonorLisboa",
+      "name": "Leonor N. L. Simões",
+      "avatar_url": "https://avatars.githubusercontent.com/u/173699770?v=4",
+      "profile": "https://leonorlisboa.github.io/",
+      "contributions": [
+        "userTesting"
+      ]
+    }
+  ]
+}
